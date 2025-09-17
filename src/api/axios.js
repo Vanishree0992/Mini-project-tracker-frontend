@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/", // Django backend API
+  baseURL: "https://mini-project-tracker-backend.onrender.com/api/", // Django backend API
   timeout: 5000,
 });
 
@@ -28,7 +28,7 @@ API.interceptors.response.use(
         const refreshToken = localStorage.getItem("refresh_token");
         if (refreshToken) {
           const { data } = await axios.post(
-            "http://127.0.0.1:8000/api/token/refresh/",
+            "https://mini-project-tracker-backend.onrender.com/api/token/refresh/",
             { refresh: refreshToken }
           );
           localStorage.setItem("access_token", data.access);
